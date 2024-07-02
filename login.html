@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/" id="Form">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName"><br>
+
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName"><br>
+
+        <label for="Email">Email</label>
+        <input type="text" id="Email" name="Email"><br>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+    const Form = document.getElementById("Form");
+
+    Form.addEventListener("load", () => {
+        const storedFormData = localStorage.getItem("formData");
+
+        if(storedFormData){
+            const formData = JSON.parse(storedFormData);
+            document.getElementById("firstName").value = formData.Fname;
+            document.getElementById("lastName").value = formData.Lname;
+            document.getElementById("Email").value = formData.email;
+            document.getElementById("password").value = formData.password
+        }
+    });
+</script>
+</html>

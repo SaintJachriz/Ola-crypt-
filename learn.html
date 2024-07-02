@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="learn.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <h1>Logo</h1>
+        </div>
+        <ul>
+            <l1><a href="#">Home</a></l1>
+            <l1><a href="#">About</a></l1>
+            <l1><a href="#">Service</a></l1>
+            <l1><a href="#">Product</a></l1>
+            <l1><a href="#">Contact</a></l1>
+        </ul>
+        <div class="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+    <h4>Practise form</h4>
+
+    <div id="message"></div>
+    <form action="/" id="form">
+        <div>
+            <label for="userName">User Name</label><br>
+            <input type="text" name="userName" id="userName">
+        </div>
+
+        <div>
+            <label for="pass">Password</label><br>
+            <input type="password" name="pass" id="pass">
+        </div>
+
+        <div>
+             <button type="submit" onclick="Click()">Submit</button>
+        </div>
+    </form>
+</body>
+<head>
+    <!-- Add the v6 core styles and then select the individual styles you need, like Solid and Brands -->
+    <script defer src="/your-path-to-fontawesome/js/fontawesome.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/solid.js"></script>
+    <script defer src="/your-path-to-fontawesome/js/brands.js"></script>
+  
+    <!-- support v4 icon references/syntax -->
+    <script defer src="/your-path-to-fontawesome/js/v4-shims.js"></script>
+  </head>
+<script>
+    const form = document.getElementById("form");
+    const message = document.getElementById("message");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        debugger;
+
+        const fd = new FormData(form);
+        console.log(fd)
+
+        const obj = Object.fromEntries(fd)
+
+        if(obj.userName === "" || obj.pass === ""){
+            message.innerHTML = "Fields cannot be empty.";
+        } else {
+            const newUser = {
+                userName: obj.userName,
+                pass: obj.pass
+            }
+
+            const userData = JSON.stringify(newUser);
+            window.localStorage.setItem("form", userData)
+
+            window.location.href = "http://127.0.0.1:5500/works.html"
+        }
+    })
+
+    
+</script>
+</html>

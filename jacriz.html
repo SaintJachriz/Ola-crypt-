@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgba(490, 350, 190, 1.4);
+        }
+
+        section{
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .button{
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid #000;
+            font-size: 16px;
+            transition: background-color 0.35s;
+            background-color: rgba(100, 350, 240, 5.4);
+            float: right;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .btn{
+            padding: 8px 10px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px dashed gray;
+            transition: background-color 0.39s;
+            font-size: 15px;
+            font-weight: 400;
+            background: #234;
+            color: white;
+        }
+
+        .button:hover{
+            background-color: transparent;
+        }
+
+        .btn:hover{
+            background-color:rgba(100, 350, 240, 5.4);
+            color: black;
+        }
+
+        p{
+            font-size: 20px;
+        }
+
+        #myP{
+            font-size: 16px;
+        }
+
+        .alarm_bar{
+            padding: 30px 30px;
+            border: 3px solid brown;
+            width: 200px;
+            float: left;
+            margin-top: 0;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="alarm_bar" id="Page">
+    </div>
+    <div class="btn-div">
+        <button class="button">Connect Wallet</button>
+    </div>
+    <div class="container">
+        <section>
+            <p>Claim Your Token</p>
+            <button class="btn" id="btnn" type="button"><p id="myP">Claim now</p></button>
+        </section>
+    </div>
+</body>
+<script>
+   const btnn = document.getElementById("btnn")
+   const Page = document.getElementById("Page")
+   const p2 = document.getElementById("myP2")
+
+   btnn.addEventListener(() => {
+    Page.style.display = "block"
+    
+   })
+
+</script>
+</html>

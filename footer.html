@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #search-bar{
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #search-results{
+            display: none;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <input type="search" id="search-bar" placeholder="Search">
+    <div id="search-result"></div>
+   
+    <div id="Display"></div>
+</body>
+<script>
+    const searchInput = document.getElementById("search-bar");
+    const searchResult = document.getElementById("search-result");
+
+    searchInput.addEventListener("input", (e) => {
+        const query = e.target.value.toLowerCase();
+        const result = ["Jachriz", "Kelex", "Melvin"]
+
+        if(result.length > 0){
+            searchResults.innerHTML ="";
+            result.forEach((result) => {
+                const resultHTML = `<div>${result}</div>`;
+                searchResult.innerHTML += resultHTML;
+            });
+            searchResult.style.display = "block";
+        } else {
+            searchResult.style.display = "none";
+        }
+    });
+
+    const display = document.getElementById("Display")
+
+let Jachriz = [{
+    name: "Jachriz",
+    age: "18",
+    skill: "Web Developement",
+    location: {
+        address: "Number 27 alahun osumba",
+        city: "Lagos",
+        juction: "Maza Maza"
+    }
+}]
+
+console.log(Jachriz.name + " " + Jachriz.age + " " + Jachriz.skill + " " + Jachriz.location)
+
+</script>
+</html>

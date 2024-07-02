@@ -1,0 +1,82 @@
+This is verify form
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #page1{
+            padding: 10px;
+        }
+
+
+        #page2{
+            padding: 10px;
+        }
+
+
+        #page3{
+            padding: 10px;
+        }
+
+        .success{
+            color: green;
+        }
+
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="alert" class="success error"></div>
+    <h1>Lets check if your data is correct</h1>
+    <form action="/" id="form">
+        <div>
+            <label for="firstName">First Name</label><br>
+            <input type="text" name="firstName" id="firstName">
+        </div>
+        <div>
+            <label for="pass">Input Password</label><br>
+            <input type="text" name="pass" id="pass">
+        </div>
+
+        <div>
+            <button type="submit" id="verify">Verify</button>
+        </div>
+    </form>
+</body>
+<script>
+    const verify = document.getElementById("form")
+
+    verify.addEventListener("submit", function (e) {
+        e.preventDefault()
+        debugger;
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("pass").value.trim();
+        const user = localStorage.getItem("form")
+        const alert = document.getElementById("alert")
+        const success = document.getElementsByClassName("success")
+        const error = document.getElementsByClassName("error")
+
+        if(user) {
+            let userdetails = JSON.parse(user);
+
+            if(userdetails.FirstName === firstName && userdetails.Pass === pass){
+                setInterval( function () {
+                    alert.textContent = "Correct details"
+                })
+                window.location.href = ""
+            } else{
+                alert.textContent = "Input correct details"
+            }
+        }
+    })
+ </script>

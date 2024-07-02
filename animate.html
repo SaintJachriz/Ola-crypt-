@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Example</title>
+</head>
+<style>
+    .text_color{
+        color:red;
+    }
+</style>
+<body>
+    <form id="form">
+        <div>
+            <label for="FirstName">
+                First Name
+            </label><br>
+            <input type="text" name="FirstName" id="FirstName">
+        </div>
+       
+
+        <div>
+            <label for="LastName">Last Name</label><br>
+            <input type="text" name="LastName" id="LastName">
+        </div>
+
+        <div>
+            <label for="Pass">Password</label><br>
+            <input type="text" name="Pass" id="Pass">
+        </div>
+        <div>
+            <label for="myOptions">How difficult is Javascript?</label><br>
+            <select name="myOption" id="">
+                <option value="easy">Easy</option>
+                <option value="swb">SomeWhere Between</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <div id="alert" class="text_color"></div>
+</body>
+<script>
+    const form = document.getElementById("form");
+    const message = document.getElementById('alert')
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        debugger;
+        const fd = new FormData(form)
+        console.log(fd)
+        const obj = Object.fromEntries(fd);
+        if(obj.FirstName == "" || obj.LastName == "" || obj.myOption == ""){
+            message.textContent = 'please fill the FirstName and  LastName field'
+        }
+        else{
+            const newUser = {
+                FirstName :obj.FirstName,
+                LastName:obj.LastName,
+                myOption:obj.myOption,
+                userId:generateUserId()
+            }
+            
+        const userData = JSON.stringify(newUser);
+        window.localStorage.setItem('form', userData);
+
+        window.location.href = 'http://127.0.0.1:5500/giit.html';
+        }
+
+        function generateUserId (){
+            return  Math.floor(100000 + Math.random() * 900000);
+        }
+        
+    })
+</script>
+<!-- <script src="giit.js"></script> -->
+</html>

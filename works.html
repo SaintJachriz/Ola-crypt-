@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Verify</h3>
+    <div id="alert"></div>
+
+    <form action="/">
+
+        <div>
+        <label for="UserName">Input Username</label><br>
+        <input type="text" name="UserName" id="UserName">
+    </div>
+
+    <div>
+        <label for="Pass">Input correct Password</label><br>
+        <input type="password" name="Pass" id="Pass">
+    </div>
+
+    <div>
+        <button type="submit" id="check">Sign in</button>
+    </div>
+    </form>
+
+</body>
+<script>
+    const check = document.getElementById("check");
+
+    check.addEventListener("submit", function(eve) {
+        eve.preventDefault
+        debugger;
+        const UserName =  document.getElementById("UserName").value.trim
+    const Pass = document.getElementById("Pass").value.trim
+    const alert = document.getElementById("alert");
+    const user = localStorage.getItem("form")
+
+    if(user) {
+        let userdetails = JSON.parse(user);
+
+        if(userdetails.userName === UserName && userdetailes.pass === Pass){
+            setInterval(function () {
+                alert.textContent = "Correct details"
+            })
+        } else {
+            alert.textContent = "Input correct details"
+        }
+    }
+    })
+</script>
+</html>

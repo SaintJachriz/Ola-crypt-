@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    nav{
+        display: flex;
+        justify-content: space-between;
+        background-color: #455;
+    }
+
+    nav ul{
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li{
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    nav ul li a{
+        color: #fff;
+        text-decoration: none;
+    }
+
+    h1{
+        font-size: 30px;
+        color: #bbb;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    a:hover{
+        color: #b00;
+    }
+    
+    #search{
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #results{
+        display: none;
+        background: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+</style>
+<body>
+    <nav>
+        <div class="nav-head">
+            <h1 id="Head">Logo</h1>
+        </div>
+        <ul>
+            <li><a href="#">🏡Home</a></li>
+            <li><a href="#">📁Profile</a></li>
+            <li><a href="#">📞Contact</a></li>
+            <li><a href="#">🛡️About</a></li>
+        </ul>
+    </nav>
+
+    <input type="search" id="search" placeholder="Search">
+    <div id="results"></div>
+
+    <label id="myLabel">0</label>
+    <button id="add">+</button>
+    <button id="minus">-</button>
+    <button id="clear">Ac</button>
+
+    <p id="myP"></p>
+    <input type="text" placeholder="Input $SOL Address" id="Input">
+    <button id="Btn">Submit</button>
+</body>
+<script src="normal.js"></script>
+<script>
+    const Header = document.getElementById("Head")
+    Header.addEventListener("animationstart", function(e) {
+        e.target.classlist
+    });
+
+    const Label = document.getElementById("myLabel")
+    const add = document.getElementById("add")
+    const minus = document.getElementById("minus")
+    const clear = document.getElementById("clear")
+
+
+    let count = 0;
+
+    add.onclick = function() {
+        count++;
+        Label.textContent = count
+    }
+
+    minus.onclick = function() {
+        count--
+        Label.textContent = count
+    }
+
+    clear.onclick = function() {
+        count = 0
+        Label.textContent = count
+    }
+
+
+    function init() {
+        setTimeout(() => {
+            Promise = new Promise(function(resolve, reject) {
+
+                let init = true;
+
+                if(init) {
+                    resolve("Whats Good init?");
+                } else {
+                    reject("You dont speack uk?");
+                }
+            })
+        })
+    }
+
+
+    const Input = getElementById("Input");
+    const myP = getElementById("myP");
+    const Btn = getElementById("Btn");
+
+    Btn.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        if(Input === null) {
+            myP.textContent = "Input $SOL Address";
+        } else {
+            alert("Please enter your address")
+        }
+    });
+
+
+</script>
+</html>
